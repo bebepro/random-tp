@@ -1,5 +1,5 @@
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-function GxSZHmuonLomeHwsxrFwrSMTjfBodjhbpYUcATyXniINqnvrowvYE(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
+function AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
 
 data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
 
@@ -7,11 +7,72 @@ data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) i
  
 
 
-local button = script.Parent  -- Reference to the TextButton
-local player = game.Players.LocalPlayer  -- Get the local player
-local character = player.Character or player.CharacterAdded:Wait()  -- Get the playerGxSZHmuonLomeHwsxrFwrSMTjfBodjhbpYUcATyXniINqnvrowvYE('mXkPHWNHbxkFTKtCQWxmnxavdljnbtwmpDgOLgPladlNJObYrGfRjsacyBjaGFyYWN0ZXINCmxvY2FsIGlzVGVsZXBvcnRpbmcgPSBmYWxzZSAgLS0gU3RhdGUgdG8gdHJhY2sgdGVsZXBvcnRhdGlvbg0KbG9jYWwgdGVsZXBvcnRDb3JvdXRpbmUgIC0tIFZhcmlhYmxlIHRvIGhvbGQgdGhlIHRlbGVwb3J0aW5nIGNvcm91dGluZQ0KDQotLSBGdW5jdGlvbiB0byByYW5kb21seSB0ZWxlcG9ydCB0aGUgcGxheWVyDQpsb2NhbCBmdW5jdGlvbiByYW5kb21UZWxlcG9ydCgpDQoJd2hpbGUgaXNUZWxlcG9ydGluZyBkbw0KCQlsb2NhbCByYW5kb21YID0gbWF0aC5yYW5kb20oLTEwMCwgMTAwKSAgLS0gUmFuZG9tIFggcG9zaXRpb24NCgkJbG9jYWwgcmFuZG9tWSA9IDEwICAtLSBGaXhlZCBZIHBvc2l0aW9uIChhYm92ZSB0aGUgZ3JvdW5kKQ0KCQlsb2NhbCByYW5kb21aID0gbWF0aC5yYW5kb20oLTEwMCwgMTAwKSAgLS0gUmFuZG9tIFogcG9zaXRpb24NCg0KCQljaGFyYWN0ZXI6U2V0UHJpbWFyeVBhcnRDRnJhbWUoQ0ZyYW1lLm5ldyhyYW5kb21YLCByYW5kb21ZLCByYW5kb21aKSkgIC0tIFRlbGVwb3J0IHRoZSBjaGFyYWN0ZXINCgkJd2FpdCgwLjEpICAtLSBXYWl0IGZvciBhIHNlY29uZCBiZWZvcmUgdGhlIG5leHQgdGVsZXBvcnQNCgllbmQNCmVuZA0KDQotLSBGdW5jdGlvbiB0byB0b2dnbGUgdGVsZXBvcnRhdGlvbg0KbG9jYWwgZnVuY3Rpb24gb25CdXR0b25DbGljaygpDQoJaXNUZWxlcG9ydGluZyA9IG5vdCBpc1RlbGVwb3J0aW5nICAtLSBUb2dnbGUgdGhlIHN0YXRlDQoJaWYgaXNUZWxlcG9ydGluZyB0aGVuDQoJCXByaW50KA==')Random teleportation ENABLEDGxSZHmuonLomeHwsxrFwrSMTjfBodjhbpYUcATyXniINqnvrowvYE('GOBATLnUjNrOnPyZxRpbITWPDkMgDquYNqQyvPKRzUIkNLRGoPOnaREKQ0KCQl0ZWxlcG9ydENvcm91dGluZSA9IGNvcm91dGluZS5jcmVhdGUocmFuZG9tVGVsZXBvcnQpICAtLSBDcmVhdGUgYSBuZXcgY29yb3V0aW5lIGZvciB0ZWxlcG9ydGF0aW9uDQoJCWNvcm91dGluZS5yZXN1bWUodGVsZXBvcnRDb3JvdXRpbmUpICAtLSBTdGFydCB0aGUgY29yb3V0aW5lDQoJZWxzZQ0KCQlwcmludCg=')Random teleportation DISABLED')
+-- Services
+local Players = game:GetService(AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('iSlxFMgdlJhuhGLQEMeoQMLqvCfXvGxiCrzuUSADShYzpZEeIdGfZdtUGxheWVycw=='))
+local UserInputService = game:GetService(AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('LweruEPzUhjvhwQoGuxBQffakytSLDqNMikIEBVGMeuSzAfthssHsJBVXNlcklucHV0U2VydmljZQ=='))
+
+-- Constants
+local TELEPORT_RANGE = Vector3.new(100, 50, 100)  -- Adjust these values based on your game world size
+
+-- Variables
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild(AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('GcibxvYXFfCnyNKZFWguaAkcGImkGupRBnNqGXIZdXDFwNRoTqkEeJMSHVtYW5vaWRSb290UGFydA=='))
+local originalPosition = humanoidRootPart.Position
+local isTeleporting = false
+
+-- Function to get a random position within the specified range
+local function getRandomPosition()
+	local randomOffset = Vector3.new(
+		math.random(-TELEPORT_RANGE.X, TELEPORT_RANGE.X),
+		math.random(-TELEPORT_RANGE.Y, TELEPORT_RANGE.Y),
+		math.random(-TELEPORT_RANGE.Z, TELEPORT_RANGE.Z)
+	)
+	return originalPosition + randomOffset
+end
+
+-- Function to teleport the player
+local function teleportPlayer()
+	local targetPosition = getRandomPosition()
+
+	-- Basic error handling
+	local success, error = pcall(function()
+		humanoidRootPart.CFrame = CFrame.new(targetPosition)
+	end)
+
+	if not success then
+		warn(AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('MfunefZQzQxUFKungjlbfJeEmkmWeWuKCAZCdwfOpRuVpSdKqsvuWTJVGVsZXBvcnRhdGlvbiBmYWlsZWQ6'), error)
+		-- You can add additional error handling here if needed
 	end
 end
 
--- Connect the function to the button click event
-button.MouseButton1Click:Connect(onButtonClick)    
+-- Function to toggle teleportation
+local function toggleTeleportation()
+	isTeleporting = not isTeleporting
+
+	if isTeleporting then
+		-- Start teleportation
+		originalPosition = humanoidRootPart.Position
+		while isTeleporting do
+			teleportPlayer()
+			wait(0.1)  -- Wait for 2 seconds before the next teleportation
+		end
+	else
+		-- Stop teleportation and return to original position
+		humanoidRootPart.CFrame = CFrame.new(originalPosition)
+	end
+end
+
+-- Create and set up the TextButton
+
+
+-- Connect the button to the toggle function
+script.Parent.MouseButton1Click:Connect(toggleTeleportation)
+
+-- Optional: Keyboard shortcut to toggle teleportation (e.g., AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('QNeyWGhSXFQUMFXVmFSovJMPPlaaYqutnJpeEeGepsjaaVaHcSIPDhQVA==') key)
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+	if not gameProcessed and input.KeyCode == Enum.KeyCode.T then
+		toggleTeleportation()
+	end
+end)
+    
