@@ -1,5 +1,5 @@
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-function wEJDYEsaSBECyLqwvPgza(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
+function WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
 
 data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
 
@@ -7,12 +7,11 @@ data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) i
  
 
 
-script.Parent.MouseButton1Click:Connect(function()
-	-- Services
-	local UserInputService = game:GetService(wEJDYEsaSBECyLqwvPgza('NSNyBbKZmvtwypqivfkeRzTVXhMsLxXAXZxbgaKLkNYaEUOmvOnAySXVXNlcklucHV0U2VydmljZQ=='))
+-- Services
+	local UserInputService = game:GetService(WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf('TmkJknGRQdYEznRENGfRjaWSHYyBvnosrrNaWxPpyzBdrfpnXRYBLrkVXNlcklucHV0U2VydmljZQ=='))
 	local player = game.Players.LocalPlayer
 	local character = player.Character or player.CharacterAdded:Wait()
-	local humanoidRootPart = character:WaitForChild(wEJDYEsaSBECyLqwvPgza('QLHrLEtGuJRwdNbktbGzwbNXEgiTvxQDiOanGFWjFvXXocyKTrcjqpFSHVtYW5vaWRSb290UGFydA=='))
+	local humanoidRootPart = character:WaitForChild(WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf('URkYzQiEgWfiYHwImcVzhsyEGSOfGFIDwLGxSPplxRlJVdsSaDxdExqSHVtYW5vaWRSb290UGFydA=='))
 
 	-- Variables
 	local originalPosition = nil
@@ -60,9 +59,9 @@ script.Parent.MouseButton1Click:Connect(function()
 		end
 	end
 
-	-- Function to handle the key press for wEJDYEsaSBECyLqwvPgza('rlVjvExIvbWaYmvYYqDBniJIZeNiyidcPvnRobAgMoIBdPskNduwNzrWQ==') to toggle teleporting
+	-- Function to handle the key press for WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf('OVlJhzOJoOrLEgMzzcdiImjsyDJkmxLptTvNYTRKLjbseAQmuGjFgStWQ==') to toggle teleporting
 	local function onKeyPress(input)
-		-- Toggle teleporting when wEJDYEsaSBECyLqwvPgza('wCpUgzCLydfGShiRBQlusqbKjdRrurLXCkHCcOEbcSHAcTlnnYnlqupWQ==') is pressed
+		-- Toggle teleporting when WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf('caeuEsdSbvdzePNcjuRAIioqzTVxKUiFBrTLgcPuJuZQUJqRkxLjDeZWQ==') is pressed
 		if input.KeyCode == Enum.KeyCode.Y then
 			if teleporting then
 				-- Stop teleporting and return to the original position
@@ -78,5 +77,4 @@ script.Parent.MouseButton1Click:Connect(function()
 
 	-- Connect the key press function to UserInputService
 	UserInputService.InputBegan:Connect(onKeyPress)
-
-end)    
+    
