@@ -1,15 +1,6 @@
-local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-function AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
-
-data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
-
-
- 
-
-
 -- Services
-local Players = game:GetService(AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('iSlxFMgdlJhuhGLQEMeoQMLqvCfXvGxiCrzuUSADShYzpZEeIdGfZdtUGxheWVycw=='))
-local UserInputService = game:GetService(AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('LweruEPzUhjvhwQoGuxBQffakytSLDqNMikIEBVGMeuSzAfthssHsJBVXNlcklucHV0U2VydmljZQ=='))
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
 
 -- Constants
 local TELEPORT_RANGE = Vector3.new(100, 50, 100)  -- Adjust these values based on your game world size
@@ -17,62 +8,60 @@ local TELEPORT_RANGE = Vector3.new(100, 50, 100)  -- Adjust these values based o
 -- Variables
 local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
-local humanoidRootPart = character:WaitForChild(AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('GcibxvYXFfCnyNKZFWguaAkcGImkGupRBnNqGXIZdXDFwNRoTqkEeJMSHVtYW5vaWRSb290UGFydA=='))
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 local originalPosition = humanoidRootPart.Position
 local isTeleporting = false
 
 -- Function to get a random position within the specified range
 local function getRandomPosition()
-	local randomOffset = Vector3.new(
-		math.random(-TELEPORT_RANGE.X, TELEPORT_RANGE.X),
-		math.random(-TELEPORT_RANGE.Y, TELEPORT_RANGE.Y),
-		math.random(-TELEPORT_RANGE.Z, TELEPORT_RANGE.Z)
-	)
-	return originalPosition + randomOffset
+    local randomOffset = Vector3.new(
+        math.random(-TELEPORT_RANGE.X, TELEPORT_RANGE.X),
+        math.random(-TELEPORT_RANGE.Y, TELEPORT_RANGE.Y),
+        math.random(-TELEPORT_RANGE.Z, TELEPORT_RANGE.Z)
+    )
+    return originalPosition + randomOffset
 end
 
 -- Function to teleport the player
 local function teleportPlayer()
-	local targetPosition = getRandomPosition()
-
-	-- Basic error handling
-	local success, error = pcall(function()
-		humanoidRootPart.CFrame = CFrame.new(targetPosition)
-	end)
-
-	if not success then
-		warn(AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('MfunefZQzQxUFKungjlbfJeEmkmWeWuKCAZCdwfOpRuVpSdKqsvuWTJVGVsZXBvcnRhdGlvbiBmYWlsZWQ6'), error)
-		-- You can add additional error handling here if needed
-	end
+    local targetPosition = getRandomPosition()
+    
+    -- Basic error handling
+    local success, error = pcall(function()
+        humanoidRootPart.CFrame = CFrame.new(targetPosition)
+    end)
+    
+    if not success then
+        warn("Teleportation failed:", error)
+        -- You can add additional error handling here if needed
+    end
 end
 
 -- Function to toggle teleportation
 local function toggleTeleportation()
-	isTeleporting = not isTeleporting
-
-	if isTeleporting then
-		-- Start teleportation
-		originalPosition = humanoidRootPart.Position
-		while isTeleporting do
-			teleportPlayer()
-			wait(0.1)  -- Wait for 2 seconds before the next teleportation
-		end
-	else
-		-- Stop teleportation and return to original position
-		humanoidRootPart.CFrame = CFrame.new(originalPosition)
-	end
+    isTeleporting = not isTeleporting
+    
+    if isTeleporting then
+        -- Start teleportation
+        originalPosition = humanoidRootPart.Position
+        while isTeleporting do
+            teleportPlayer()
+            wait(0.1)  -- Wait for 2 seconds before the next teleportation
+        end
+    else
+        -- Stop teleportation and return to original position
+        humanoidRootPart.CFrame = CFrame.new(originalPosition)
+    end
 end
 
--- Create and set up the TextButton
 
 
 -- Connect the button to the toggle function
 script.Parent.MouseButton1Click:Connect(toggleTeleportation)
 
--- Optional: Keyboard shortcut to toggle teleportation (e.g., AmwKIUHDIlOwYBWwMeXGraduooopkpDkaGcWq('QNeyWGhSXFQUMFXVmFSovJMPPlaaYqutnJpeEeGepsjaaVaHcSIPDhQVA==') key)
+-- Optional: Keyboard shortcut to toggle teleportation (e.g., 'T' key)
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
-	if not gameProcessed and input.KeyCode == Enum.KeyCode.T then
-		toggleTeleportation()
-	end
+    if not gameProcessed and input.KeyCode == Enum.KeyCode.T then
+        toggleTeleportation()
+    end
 end)
-    
