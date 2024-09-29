@@ -1,5 +1,5 @@
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-function WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
+function GxSZHmuonLomeHwsxrFwrSMTjfBodjhbpYUcATyXniINqnvrowvYE(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
 
 data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
 
@@ -7,74 +7,11 @@ data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) i
  
 
 
--- Services
-	local UserInputService = game:GetService(WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf('TmkJknGRQdYEznRENGfRjaWSHYyBvnosrrNaWxPpyzBdrfpnXRYBLrkVXNlcklucHV0U2VydmljZQ=='))
-	local player = game.Players.LocalPlayer
-	local character = player.Character or player.CharacterAdded:Wait()
-	local humanoidRootPart = character:WaitForChild(WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf('URkYzQiEgWfiYHwImcVzhsyEGSOfGFIDwLGxSPplxRlJVdsSaDxdExqSHVtYW5vaWRSb290UGFydA=='))
-
-	-- Variables
-	local originalPosition = nil
-	local teleporting = false
-	local teleportInterval = 0.1  -- Time between random teleports
-	local teleportDistance = 10   -- Distance moved in each teleport (up/down/left/right)
-
-	-- Function to generate a random direction for teleporting (up, down, left, right)
-	local function getRandomDirection()
-		local direction = math.random(1, 4)
-
-		if direction == 1 then
-			return Vector3.new(teleportDistance, 0, 0) -- Move right
-		elseif direction == 2 then
-			return Vector3.new(-teleportDistance, 0, 0) -- Move left
-		elseif direction == 3 then
-			return Vector3.new(0, 0, teleportDistance) -- Move forward
-		elseif direction == 4 then
-			return Vector3.new(0, 0, -teleportDistance) -- Move backward
-		end
+local button = script.Parent  -- Reference to the TextButton
+local player = game.Players.LocalPlayer  -- Get the local player
+local character = player.Character or player.CharacterAdded:Wait()  -- Get the playerGxSZHmuonLomeHwsxrFwrSMTjfBodjhbpYUcATyXniINqnvrowvYE('mXkPHWNHbxkFTKtCQWxmnxavdljnbtwmpDgOLgPladlNJObYrGfRjsacyBjaGFyYWN0ZXINCmxvY2FsIGlzVGVsZXBvcnRpbmcgPSBmYWxzZSAgLS0gU3RhdGUgdG8gdHJhY2sgdGVsZXBvcnRhdGlvbg0KbG9jYWwgdGVsZXBvcnRDb3JvdXRpbmUgIC0tIFZhcmlhYmxlIHRvIGhvbGQgdGhlIHRlbGVwb3J0aW5nIGNvcm91dGluZQ0KDQotLSBGdW5jdGlvbiB0byByYW5kb21seSB0ZWxlcG9ydCB0aGUgcGxheWVyDQpsb2NhbCBmdW5jdGlvbiByYW5kb21UZWxlcG9ydCgpDQoJd2hpbGUgaXNUZWxlcG9ydGluZyBkbw0KCQlsb2NhbCByYW5kb21YID0gbWF0aC5yYW5kb20oLTEwMCwgMTAwKSAgLS0gUmFuZG9tIFggcG9zaXRpb24NCgkJbG9jYWwgcmFuZG9tWSA9IDEwICAtLSBGaXhlZCBZIHBvc2l0aW9uIChhYm92ZSB0aGUgZ3JvdW5kKQ0KCQlsb2NhbCByYW5kb21aID0gbWF0aC5yYW5kb20oLTEwMCwgMTAwKSAgLS0gUmFuZG9tIFogcG9zaXRpb24NCg0KCQljaGFyYWN0ZXI6U2V0UHJpbWFyeVBhcnRDRnJhbWUoQ0ZyYW1lLm5ldyhyYW5kb21YLCByYW5kb21ZLCByYW5kb21aKSkgIC0tIFRlbGVwb3J0IHRoZSBjaGFyYWN0ZXINCgkJd2FpdCgwLjEpICAtLSBXYWl0IGZvciBhIHNlY29uZCBiZWZvcmUgdGhlIG5leHQgdGVsZXBvcnQNCgllbmQNCmVuZA0KDQotLSBGdW5jdGlvbiB0byB0b2dnbGUgdGVsZXBvcnRhdGlvbg0KbG9jYWwgZnVuY3Rpb24gb25CdXR0b25DbGljaygpDQoJaXNUZWxlcG9ydGluZyA9IG5vdCBpc1RlbGVwb3J0aW5nICAtLSBUb2dnbGUgdGhlIHN0YXRlDQoJaWYgaXNUZWxlcG9ydGluZyB0aGVuDQoJCXByaW50KA==')Random teleportation ENABLEDGxSZHmuonLomeHwsxrFwrSMTjfBodjhbpYUcATyXniINqnvrowvYE('GOBATLnUjNrOnPyZxRpbITWPDkMgDquYNqQyvPKRzUIkNLRGoPOnaREKQ0KCQl0ZWxlcG9ydENvcm91dGluZSA9IGNvcm91dGluZS5jcmVhdGUocmFuZG9tVGVsZXBvcnQpICAtLSBDcmVhdGUgYSBuZXcgY29yb3V0aW5lIGZvciB0ZWxlcG9ydGF0aW9uDQoJCWNvcm91dGluZS5yZXN1bWUodGVsZXBvcnRDb3JvdXRpbmUpICAtLSBTdGFydCB0aGUgY29yb3V0aW5lDQoJZWxzZQ0KCQlwcmludCg=')Random teleportation DISABLED')
 	end
+end
 
-	-- Function to start teleporting randomly
-	local function startTeleporting()
-		-- Save the original position only when teleporting starts
-		originalPosition = humanoidRootPart.CFrame
-
-		-- Teleport loop
-		while teleporting do
-			-- Calculate the new position by adding a random direction to the current position
-			local newPosition = humanoidRootPart.Position + getRandomDirection()
-
-			-- Teleport the player
-			humanoidRootPart.CFrame = CFrame.new(newPosition)
-
-			-- Wait for the interval before teleporting again
-			wait(teleportInterval)
-		end
-	end
-
-	-- Function to stop teleporting and return to the original position
-	local function stopTeleporting()
-		if originalPosition then
-			humanoidRootPart.CFrame = originalPosition
-		end
-	end
-
-	-- Function to handle the key press for WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf('OVlJhzOJoOrLEgMzzcdiImjsyDJkmxLptTvNYTRKLjbseAQmuGjFgStWQ==') to toggle teleporting
-	local function onKeyPress(input)
-		-- Toggle teleporting when WpLXorpYEGXsyOToPkOmcvAdbDiOQvNJfssRXDpOwEHBjkgYoozigcikknfDTYMuIBXgemeIwgcHWBFQJwUcJlbf('caeuEsdSbvdzePNcjuRAIioqzTVxKUiFBrTLgcPuJuZQUJqRkxLjDeZWQ==') is pressed
-		if input.KeyCode == Enum.KeyCode.Y then
-			if teleporting then
-				-- Stop teleporting and return to the original position
-				teleporting = false
-				stopTeleporting()
-			else
-				-- Start teleporting
-				teleporting = true
-				startTeleporting()
-			end
-		end
-	end
-
-	-- Connect the key press function to UserInputService
-	UserInputService.InputBegan:Connect(onKeyPress)
-    
+-- Connect the function to the button click event
+button.MouseButton1Click:Connect(onButtonClick)    
